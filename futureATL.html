@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Futuristic Atlanta</title>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="sky" src="overcast.jpg">
+      <img id="street-texture" src="pavement.jpg">    </a-assets>
+
+    <!-- Sky -->
+    <a-sky src="#sky"></a-sky>
+
+    <!-- Ground -->
+    <a-plane position="0 0 0" rotation="-90 0 0" width="2000" height="800"
+      material="src: #street-texture; repeat: 50 20"></a-plane>
+
+    <!-- Bridges -->
+    <a-entity gltf-model="scifi_bridge_free.glb" position="-120 0 -50" scale="2 2 2"></a-entity>
+    <a-entity gltf-model="scifi_bridge_free.glb" position="0 0 -50" scale="2 2 2"></a-entity>
+    <a-entity gltf-model="scifi_bridge_free.glb" position="120 0 -50" scale="2 2 2"></a-entity>
+    <a-entity gltf-model="scifi_bridge_free.glb" position="240 0 -50" scale="2 2 2"></a-entity>
+
+    <!-- Space Shuttles -->
+    <a-entity id="shuttle1" gltf-model="space_shuttle_atlantis.glb" position="-200 -50 -130" scale="20 20 20"
+      animation="property: position; to: -200 450 -130; dur: 4000; autoplay: true; loop: true"></a-entity>
+    <a-entity id="shuttle2" gltf-model="space_shuttle_atlantis.glb" position="-100 -50 -130" scale="20 20 20"
+      animation="property: position; to: -100 450 -130; dur: 4000; autoplay: false"></a-entity>
+    <a-entity id="shuttle3" gltf-model="space_shuttle_atlantis.glb" position="0 -50 -130" scale="20 20 20"
+      animation="property: position; to: 0 450 -130; dur: 4000; autoplay: true; delay: 4000; loop: true"></a-entity>
+    <a-entity id="shuttle4" gltf-model="space_shuttle_atlantis.glb" position="100 -50 -130" scale="20 20 20"
+      animation="property: position; to: 100 450 -130; dur: 4000; autoplay: false"></a-entity>
+    <a-entity id="shuttle5" gltf-model="space_shuttle_atlantis.glb" position="200 -50 -130" scale="20 20 20"
+      animation="property: position; to: 200 450 -130; dur: 4000; autoplay: true; delay: 8000; loop: true"></a-entity>
+
+    <!-- Satellites -->
+    <a-entity gltf-model="satellite.glb" position="150 200 100" rotation="50 -120 15" scale="4 4 4" 
+    animation__spin="property: rotation; to: 0 360 0; dur: 8000; loop: true; easing: linear"></a-entity>
+    
+    <a-entity gltf-model="satellite.glb" position="-150 200 100" rotation="50 120 0" scale="4 4 4"
+    animation__spin="property: rotation; to: 0 360 0; dur: 8000; loop: true; easing: linear"></a-entity>
+
+    <!-- Futuristic Crystal -->
+    <a-entity gltf-model="crystal_miniature_model.glb" position="0 0 100" scale="10 40 10"></a-entity>
+
+    <!-- Power Plants -->
+    <a-entity gltf-model="photovoltaic_power_plant.glb" position="120 0 50" rotation="0 90 0" scale="2 2 2"></a-entity>
+    <a-entity gltf-model="photovoltaic_power_plant.glb" position="-120 0 50" rotation="0 90 0" scale="2 2 2"></a-entity>
+
+    <a-plane position="0 5 -20" width="12" height="6" color="black" opacity="0.8">
+      <!-- Backstory Text -->
+      <a-text value="Welcome to Atlanta 2075!\n\n
+        In this version of Atlanta, the city has transformed into an industrial powerhouse. 
+        Futuristic technology powers the skyline, and space shuttles launch regularly to explore new frontiers. 
+        Satellites orbit above, monitoring the city and connecting it to the universe. 
+        Green energy from massive solar plants drives the city's progress, while advanced infrastructure 
+        reflects humanity's resilience and ingenuity." 
+        color="white" align="center" width="10" position="0 0 0.1">
+      </a-text>
+    </a-plane>
+
+    <!-- Camera with Cursor -->
+    <a-camera>
+      <a-cursor color="black" radius="0.02" position="0 0 -1">
+      </a-cursor>
+    </a-camera>
+  </a-scene>
+</body>
+</html>
